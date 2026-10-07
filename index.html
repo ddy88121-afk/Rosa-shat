@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0d">
+  <title>روزا | دردشة عربية</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow glow-one"></div><div class="glow glow-two"></div>
+  <main class="app-shell">
+    <section id="loginView" class="login-card">
+      <div class="brand-mark">R</div>
+      <p class="eyebrow">مساحة تجمعنا</p>
+      <h1>روزا <span>Rosa</span></h1>
+      <p class="muted">دردشة عربية بطابع أسود وذهبي</p>
+      <form id="loginForm">
+        <label for="username">اسم المستخدم</label>
+        <input id="username" maxlength="24" autocomplete="nickname" placeholder="اكتب اسمك هنا" required>
+        <label for="password">كلمة المرور <small>(للعرض التجريبي فقط)</small></label>
+        <input id="password" type="password" minlength="4" placeholder="أدخل أي كلمة مرور" required>
+        <button class="btn btn-gold" type="submit">دخول إلى روزا</button>
+        <button class="btn btn-ghost" id="guestBtn" type="button">الدخول كزائر</button>
+      </form>
+      <p class="tiny-note">نسخة تجريبية محلية — لا تستخدم كلمة مرور حقيقية.</p>
+    </section>
+
+    <section id="chatView" class="chat-layout hidden">
+      <aside class="sidebar">
+        <div class="side-brand"><span class="mini-mark">R</span><div><strong>روزا</strong><small>دردشة عربية</small></div></div>
+        <div class="user-pill"><span class="online-dot"></span><div><strong id="currentUser">زائر</strong><small>متصل على هذا الجهاز</small></div></div>
+        <p class="section-label">الغرف</p>
+        <nav id="roomList" class="room-list">
+          <button class="room active" data-room="general"><span>✦</span> الدردشة العامة</button>
+          <button class="room" data-room="friends"><span>♡</span> جلسة الأصدقاء</button>
+          <button class="room" data-room="admin"><span>♛</span> غرفة الإدارة <em>خاص</em></button>
+        </nav>
+        <div class="sidebar-bottom">
+          <p class="tiny-note">المحادثات محفوظة على هذا الجهاز فقط.</p>
+          <button id="logoutBtn" class="btn btn-ghost">تسجيل الخروج</button>
+        </div>
+      </aside>
+
+      <section class="chat-main">
+        <header class="chat-header">
+          <div><p class="eyebrow">أهلًا بك في</p><h2 id="roomTitle">الدردشة العامة</h2><p class="muted small" id="roomSubtitle">تبادل الحديث باحترام ولطف</p></div>
+          <div class="header-badge"><span class="online-dot"></span> تجريبي</div>
+        </header>
+        <div id="notice" class="notice hidden"></div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <form id="messageForm" class="composer">
+          <input id="messageInput" maxlength="500" placeholder="اكتب رسالتك هنا..." autocomplete="off" required>
+          <button class="send-btn" type="submit" aria-label="إرسال الرسالة">➤</button>
+        </form>
+        <p class="composer-hint">كن لطيفًا مع الآخرين • لا تشارك بياناتك الخاصة</p>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
